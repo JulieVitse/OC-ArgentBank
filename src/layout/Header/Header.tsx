@@ -1,7 +1,8 @@
 import styles from './Header.module.scss'
 import logo from 'assets/images/argentBankLogo.png'
-import iconUser from 'assets/images/icon-user.svg'
 import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 
 export function Header() {
     return (
@@ -17,7 +18,7 @@ export function Header() {
           </NavLink>
           <div>
             <NavLink className={styles.main_nav_item} to="/sign-in">
-                <img className={styles.main_nav_item_icon} src={iconUser} alt="User Icon" />
+              <FontAwesomeIcon icon={faCircleUser} />
               Sign In
             </NavLink>
           </div>

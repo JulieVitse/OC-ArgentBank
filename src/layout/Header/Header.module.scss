@@ -22,20 +22,17 @@
     padding: 5px 20px;
 }
 
-.main_nav a {
-    font-weight: bold;
-    color: #2c3e50;
-}
-
-.main_nav a.router_link_exact_active {
+/* .main_nav a.router_link_exact_active {
     color: #42b983;
-}
+} */
 
 .main_nav_item {
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: .5rem;
+    font-weight: bold;
+    color: #2c3e50;
 }
 
 .main_nav_item:hover {
@@ -50,8 +47,4 @@
 .main_nav_logo_image {
     max-width: 100%;
     width: 200px;
-}
-
-.main_nav_item_icon {
-    width: 20px;
 }
