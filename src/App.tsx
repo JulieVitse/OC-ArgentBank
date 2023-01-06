@@ -1,13 +1,27 @@
+/* eslint-disable react/jsx-no-undef */
 import React from 'react'
-import { Header } from './layout/Header/Header'
+import { Layout } from './layout/Layout/Layout'
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
 
 import './App.css'
+import { Account } from 'pages/Account/Account'
+import { Home } from 'pages/Home/Home'
+import { Login } from 'pages/Login/Login'
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-    </div>
+    <React.Fragment>
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<Navigate to="/home" />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/user" element={<Account />} />
+            <Route path="/sign-in" element={<Login />} />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
+    </React.Fragment>
   )
 }
 
