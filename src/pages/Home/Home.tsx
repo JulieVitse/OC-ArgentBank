@@ -3,7 +3,6 @@ import { Card } from 'components/Card/Card'
 import { cardContent } from 'data/cardData'
 import styles from './Home.module.scss'
 
-
 export function Home() {
   return (
     <main>

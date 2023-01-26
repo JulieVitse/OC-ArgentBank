@@ -7,8 +7,11 @@ import './App.css'
 import { Account } from 'pages/Account/Account'
 import { Home } from 'pages/Home/Home'
 import { Login } from 'pages/Login/Login'
+import { AuthGuard } from 'components/AuthGuard/AuthGuard'
+
 
 function App() {
+  
   return (
     <React.Fragment>
       <BrowserRouter>
@@ -16,8 +19,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/user" element={<Account />} />
-            <Route path="/sign-in" element={<Login />} />
+            <Route path="/account" element={<AuthGuard Child={Account} />} />
+            <Route path="/login" element={<Login/>} />
           </Routes>
         </Layout>
       </BrowserRouter>
