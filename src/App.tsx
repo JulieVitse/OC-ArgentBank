@@ -8,6 +8,7 @@ import { Account } from 'pages/Account/Account'
 import { Home } from 'pages/Home/Home'
 import { Login } from 'pages/Login/Login'
 import { AuthGuard } from 'components/AuthGuard/AuthGuard'
+import { NoAuthGuard } from 'components/NoAuthGuard/NoAuthGuard'
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
             <Route path="/" element={<Navigate to="/home" />} />
             <Route path="/home" element={<Home />} />
             <Route path="/account" element={<AuthGuard Child={Account} />} />
-            <Route path="/login" element={<Login/>} />
+            <Route path="/login" element={<NoAuthGuard Child={Login} />} />
           </Routes>
         </Layout>
       </BrowserRouter>
