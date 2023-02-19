@@ -1,30 +1,37 @@
 import styles from './Account.module.scss'
+/* data */
 import { accountContent } from 'data/accountData'
+/* components */
 import { AccountCard } from 'components/AccountCard/AccountCard'
+/* react */
 import { useState } from 'react'
-
+/* redux */
 import { useDispatch, useSelector } from 'react-redux'
 import { selectUser, updateUser } from 'features/userSlice'
-
+/* services */
 import { updateUserProfile } from 'services/api'
 
-
 export function Account() {
-  const user = JSON.parse(useSelector(selectUser))
+  const user = JSON.parse(useSelector(selectUser)) // useSelector() is used to access the user object from the redux store
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch() // useDispatch() is used to dispatch an action to the redux store
 
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
-
   const [showModal, setShowModal] = useState(false)
 
+  /* handles the form submission to update the user's first and last name */
   const handleSubmit = async (e: any) => {
     e.preventDefault()
+    // call the updateUserProfile() function from the API that sends a PUT request to update the user's first and last name
     const response = await updateUserProfile(firstName, lastName)
+    // if the API call is successful, dispatch the updateUser action to the redux store
     if (response) {
-    dispatch(updateUser({firstName, lastName}))
-    setShowModal(!showModal)
+      // updates the user state in the redux store using the updateUser action
+      dispatch(updateUser({ firstName, lastName }))
+      // close the modal
+      setShowModal(!showModal)
+    // if the API call is not successful, display an alert
     } else {
       alert('Something went wrong')
     }

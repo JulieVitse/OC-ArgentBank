@@ -1,9 +1,10 @@
-/* eslint-disable react/jsx-no-undef */
 import React from 'react'
-import { Layout } from './layout/Layout/Layout'
+/* router */
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-
+/* styles */
 import './App.css'
+/* components */
+import { Layout } from './layout/Layout/Layout'
 import { Account } from 'pages/Account/Account'
 import { Home } from 'pages/Home/Home'
 import { Login } from 'pages/Login/Login'
